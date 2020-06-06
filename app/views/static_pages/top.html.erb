@@ -16,7 +16,9 @@
 
 <div class="col-md-4">
     <h1>ログイン</h1>
-    <form action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="I8fKFSdhoT3cAR1yMUTdkc318oAkbg2QMhsMzcL4aIUd0autDpVyDFovbYy+7Mmb9LVGIywKKWDZpjlpNh/Hcg==" />
+    <form action="/login" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;" />
+    <input type="hidden" name="authenticity_token" value="I8fKFSdhoT3cAR1yMUTdkc318oAkbg2QMhsMzcL4aIUd0autDpVyDFovbYy+7Mmb9LVGIywKKWDZpjlpNh/Hcg==" />
         <label class="label-form" for="session_email">メールアドレス</label>
         <input class="form-control" type="email" name="session[email]" />
   
@@ -24,10 +26,11 @@
         <input class="form-control" type="password" name="session[password]" />
         
         <label class="checkbox inline checkbox-login" for="remember-me">
-          <input name="session[remember_me]" type="hidden" value="0" /><input id="remember-me" type="checkbox" value="1" name="session[remember_me]" />
+          <input name="session[remember_me]" type="hidden" value="0" />
+          <input id="remember-me" type="checkbox" value="1" name="session[remember_me]" />
           <span>ログイン情報を記憶する</span>
 </label>        
         <input type="submit" name="commit" value="ログイン" class="btn btn-primary btn-block btn-form" data-disable-with="ログイン" />
-</form>  </div>
+</form> 
 </div>
     

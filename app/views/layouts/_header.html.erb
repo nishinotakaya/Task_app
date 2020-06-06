@@ -4,8 +4,8 @@
     <%= link_to"Task App","/", id: "logo" %>
     <nav>
      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to"トップ", "/" %></li>
-        <li><%= link_to"ログイン","/login"%></li>
+        <li><%= link_to"トップ", "/" , class: "header-list"  %></li>
+        <li><%= link_to"ログイン","/login", class: "header-list" %></li>
      </ul> 
     </nav>
   </div>
@@ -29,9 +29,9 @@
               <li><%= link_to "プロフィール", current_user %></li>
               <li><%= link_to "設定", edit_user_path(current_user) %></li>
                <li class="dropdown-header">タスク</li>
-              <li><%= link_to "タスク一覧",user_tasks_path(current_user) %></li>
+              <li><%= link_to "タスク一覧",user_tasks_path(current_user)  %></li>
               <li class="divider"></li>
-              <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+              <li><%= link_to "ログアウト", logout_path, method: :delete  %></li>
             </ul>
           </li>
         <% else %>
