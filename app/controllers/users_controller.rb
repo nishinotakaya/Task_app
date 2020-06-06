@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end  
   
   
@@ -27,6 +27,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end  
   
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "ユーザー情報を更新しました。"
+      redirect_to @user
+    else
+      render :edit      
+    end
+  end
   
   private
   
