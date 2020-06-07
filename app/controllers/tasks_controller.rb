@@ -1,5 +1,9 @@
 class TasksController < ApplicationController
   before_action :set_user
+  before_action :logged_in_user, only: [:update, :edit_one_month]
+  before_action :admin_or_correct_user, only: [:update, :edit_one_month, :update_one_month]
+  before_action :set_one_month, only: :edit_one_month
+  
   
   def index
    @tasks = Task.all
@@ -40,6 +44,13 @@ class TasksController < ApplicationController
    @task.destroy
     flash[:success] = "#{@task.name}のデータを削除しました。"
     redirect_to user_tasks_url @user
+  end
+  
+  def logged_in_user
+     unless logged_in?
+        flash[:danger] = "ログインしてください。"
+        redirect_to login_url
+     end
   end
   
   
