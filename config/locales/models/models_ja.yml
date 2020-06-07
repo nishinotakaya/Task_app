@@ -10,4 +10,4 @@ ja:
           password: パスワード
           password_confirmation: パスワード再入力
           created_at: 作成日
-          updated_at: 更新日
+          updated_at: 更新日 
