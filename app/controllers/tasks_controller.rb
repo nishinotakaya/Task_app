@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_user
+  before_action :logged_in_user, only: [:update, :show, :index, :edit]
+  before_action :admin_or_correct_user, only: [:update, :show]
   
   def index
    @tasks = Task.all
@@ -68,7 +70,16 @@ class TasksController < ApplicationController
  
  def correct_task
     redirect_to(root_url) unless current_task?(@task)
- end  
+ end 
+ 
+ def admin_or_correct_user
+      @user = User.find(params[:user_id]) if @user.blank?
+      unless current_user?(@user) || current_user.admin?
+        flash[:danger] = "編集権限がありません。"
+        redirect_to(root_url)
+      end  
+ end
+    
 end
  
  
