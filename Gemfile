@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 gem 'rinku'
+gem 'rake', '< 11.0'
 
 group :development, :test do
   gem 'sqlite3'
