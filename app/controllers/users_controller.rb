@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   
   def show
-   @user = User.find(params[:id])
+   @user = User.find_by(params[:id])
   end
 
   def new
@@ -37,10 +37,25 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+   @user = User.find(params[:id])
+   @user.destroy
+    flash[:success] = "#{@user.name}のデータを削除しました。"
+    redirect_to user_url @user
+  end
+  
   private
   
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+    
+  def correct_user
+      redirect_to(root_url) unless current_user?(@user)
+  end  
+  
+  def admin_user
+      redirect_to root_url unless current_user.admin?
+  end
     
 end
