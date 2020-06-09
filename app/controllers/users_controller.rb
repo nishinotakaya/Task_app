@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update, :destroy]
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:update, :index]
-  before_action :admin_user, only: :destroy
+  before_action :set_user, only: [:new, :edit, :update]
+  before_action :logged_in_user, only: [:edit, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:update]
+  before_action :admin_user, only: [:show, :index, :destroy]
   
   
   def top
