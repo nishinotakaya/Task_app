@@ -5,25 +5,43 @@
   <div class="col-md-10 col-md-offset-1">
     <table class="table table-bordered">
       <thead>
+      <tbody>
         <tr>
           <th class="active col-md-2"><%= Task.human_attribute_name :id %></th>
           <td><%= @task.id %></td>
+        </tr>
+        <tr>
           <th class="active col-md-2"><%= Task.human_attribute_name :name %></th>
           <td><%= @task.name %></td>
+        </tr>
+        <tr>
           <th class="active col-md-2"><%= Task.human_attribute_name :description %></th>
           <td><%= raw Rinku.auto_link(@task.description, :all, 'target="_blank"') %></td>
+        </tr>  
+        <tr>
           <th class="active col-md-2"><%= Task.human_attribute_name :create_at %></th>
-          <td><%=  @task.created_at %></td>
+          <td><%= l(@task.created_at, format: :long) %></td>
+        </tr>  
+        <tr>
           <th class="active col-md-2"><%= Task.human_attribute_name :updated_at %></th>
-          <td><%=  @task.updated_at %></td>
+          <td><%= l(@task.updated_at, format: :long) %></td>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          
-        </tr>
       </tbody>
     </table>
+        <% if current_user.admin? %>
+          <td>
+            <%= link_to "編集", edit_user_task_path(@user, @task), class: "btn btn-success" %>
+            <%= link_to "削除", user_task_path(@user, @task), method: :delete, class: "btn btn-danger" %>
+          </td>
+        <% end %>  
   </div>    
 </div>
+      
+   
+         
+          
+          
+
+      
+       
