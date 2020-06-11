@@ -3,24 +3,27 @@
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-   <a class="btn btn-lg btn-primary pull-right" href="tasks/new">タスク新規作成</a>
+    <a class="btn btn-lg btn-primary pull-right" href="tasks/new">タスク新規作成</a>
     <table class="table table-hover" id="table-tasks">
       <thead>
         <tr>
           <th><%= Task.human_attribute_name :名称 %></th>
           <th><%= Task.human_attribute_name :作成日 %></th>
-          <th></th>
         </tr>
       </thead>
      <tbody>
       <% @tasks.each do |task| %>
       <tr>
-      <td><%= link_to task.name, user_task_path(@user, task) %></td>
-      <td><%= link_to "編集", edit_user_task_path(@user, task), class:"btn btn-success" %></td>
-      <td><%= link_to "削除", user_task_path(@user, task), method: :delete, class: "btn btn-lg btn-danger" %></td>
+        <td><%= link_to task.name, user_task_path(@user, task) %></td>
+        <td><%=  l(@user.created_at, format: :long) %></td>  
+        <td><%= link_to "編集", edit_user_task_path(@user, task), class:"btn btn-success" %></td>
+        <td><%= link_to "削除", user_task_path(@user, task), method: :delete, class: "btn btn btn-danger" %></td>
       </tr>
       <% end %>
      </tbody>
     </table>
   </div>
 </div>  
+          
+          
+         

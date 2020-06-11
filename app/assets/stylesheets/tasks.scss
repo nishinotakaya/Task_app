@@ -6,6 +6,8 @@
   text-align: center;
 }
 
+
+
 /* 入力フォーム */
 
 .label-signup {
@@ -24,10 +26,18 @@
   margin-top: 10px;
 }
 
+.btn-form {
+  margin-top: 5px;
+}
+
 /* ユーザー一覧ページ */
 
 #table-tasks {
   td {
     vertical-align: middle;
   }  
+}
+
+#task-name {
+    font-size: 1.8rem;
 }

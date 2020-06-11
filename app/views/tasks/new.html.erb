@@ -4,10 +4,10 @@
   <%= form_with(model: @task, url: user_tasks_path(@user), local: true) do |f| %>
    <%= render 'shared/error_messages', obj: @task %>
    
-   <%= f.label :name, class: "label-form" %>
+   <%= f.label :名称, class: "label-form" %>
    <%= f.text_field :name, class: "form-control" %>
    
-   <%= f.label :description, class: "label-form" %>
+   <%= f.label :詳細, class: "label-form" %>
    <%= f.text_area :description, rows: 5, class: "form-control" %>
    
    <%= f.submit "新規作成", class: "btn btn-primary btn-lg btn-form" %>
